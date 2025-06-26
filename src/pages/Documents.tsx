@@ -57,14 +57,12 @@ const Documents = () => {
   const categories = [...new Set(documents.map(doc => doc.category))];
 
   const handleDownload = (documentId: number, title: string) => {
-    // In a real application, this would trigger the actual download
     console.log(`Downloading document: ${title}`);
-    // You would typically make an API call here to get the actual file
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-blue-900 text-white py-16">
+      <div className="bg-green-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
             Party Documents
@@ -78,13 +76,13 @@ const Documents = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="mb-8">
           <div className="flex flex-wrap gap-2 justify-center">
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
+            <button className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium">
               All Documents
             </button>
             {categories.map(category => (
               <button 
                 key={category}
-                className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors"
+                className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-100 hover:text-green-800 transition-colors"
               >
                 {category}
               </button>
@@ -94,11 +92,11 @@ const Documents = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {documents.map(document => (
-            <div key={document.id} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-200">
+            <div key={document.id} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-200 border-l-4 border-green-600">
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center">
-                  <FileText className="text-blue-600 mr-2" size={24} />
-                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+                  <FileText className="text-green-600 mr-2" size={24} />
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">
                     {document.category}
                   </span>
                 </div>
@@ -121,7 +119,7 @@ const Documents = () => {
                 
                 <button
                   onClick={() => handleDownload(document.id, document.title)}
-                  className="flex items-center bg-blue-600 text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors duration-200"
+                  className="flex items-center bg-green-600 text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors duration-200"
                 >
                   <Download size={16} className="mr-1" />
                   Download
@@ -131,14 +129,14 @@ const Documents = () => {
           ))}
         </div>
 
-        <div className="mt-12 bg-white rounded-lg shadow-lg p-8 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="mt-12 bg-white rounded-lg shadow-lg p-8 text-center border-t-4 border-yellow-500">
+          <h3 className="text-2xl font-bold text-green-800 mb-4">
             Document Request
           </h3>
           <p className="text-gray-600 mb-6">
             Can't find the document you're looking for? Contact us to request access to additional party materials.
           </p>
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
+          <button className="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition-colors duration-200">
             Request Document
           </button>
         </div>

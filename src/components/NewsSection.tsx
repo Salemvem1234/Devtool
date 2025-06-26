@@ -29,11 +29,11 @@ const NewsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Latest News & Updates
+          <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-4">
+            Upcoming Events
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Stay informed about our latest initiatives, policy announcements, and community engagement activities.
@@ -42,10 +42,10 @@ const NewsSection = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {newsItems.map((item) => (
-            <div key={item.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden">
+            <div key={item.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden border-l-4 border-green-600">
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+                  <span className="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">
                     {item.category}
                   </span>
                   <div className="flex items-center text-gray-500 text-sm">
@@ -61,7 +61,7 @@ const NewsSection = () => {
                 </p>
                 <Link 
                   to={`/media/${item.id}`}
-                  className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+                  className="inline-flex items-center text-green-600 hover:text-green-800 font-medium"
                 >
                   Read More
                   <ArrowRight size={16} className="ml-1" />
@@ -74,9 +74,9 @@ const NewsSection = () => {
         <div className="text-center mt-12">
           <Link
             to="/media"
-            className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
+            className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200"
           >
-            View All News
+            View All Events
           </Link>
         </div>
       </div>
