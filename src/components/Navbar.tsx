@@ -17,32 +17,32 @@ const Navbar = () => {
   return (
     <nav className="bg-green-800 shadow-lg sticky top-0 z-50 font-calibri">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-3">
               <img 
-                src="/lovable-uploads/logo.png" 
+                src="/lovable-uploads/8c558d27-8d21-4b3e-99dc-bfe0ccf75a78.png" 
                 alt="People Unite for Change Logo" 
-                className="w-10 h-10 object-contain"
+                className="w-12 h-12 object-contain"
               />
-              <span className="font-bold text-xl text-white">People Unite for Change</span>
+              <span className="font-bold text-2xl text-white">People Unite for Change</span>
             </Link>
           </div>
           
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline space-x-6">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className="text-white hover:text-yellow-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                  className="text-white hover:text-yellow-400 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-200"
                 >
                   {item.name}
                 </Link>
               ))}
               <Link
                 to="/register"
-                className="bg-yellow-500 text-green-800 px-4 py-2 rounded-md text-sm font-medium hover:bg-yellow-400 transition-colors duration-200 font-bold"
+                className="bg-yellow-500 text-green-800 px-6 py-3 rounded-md text-lg font-medium hover:bg-yellow-400 transition-colors duration-200 font-bold"
               >
                 Click to Register
               </Link>
@@ -54,7 +54,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-white hover:text-yellow-400 focus:outline-none focus:text-yellow-400"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
@@ -67,7 +67,7 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-white hover:text-yellow-400 block px-3 py-2 rounded-md text-lg font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
@@ -75,7 +75,7 @@ const Navbar = () => {
             ))}
             <Link
               to="/register"
-              className="bg-yellow-500 text-green-800 block px-3 py-2 rounded-md text-base font-medium hover:bg-yellow-400 transition-colors duration-200 mt-4 font-bold"
+              className="bg-yellow-500 text-green-800 block px-3 py-2 rounded-md text-lg font-medium hover:bg-yellow-400 transition-colors duration-200 mt-4 font-bold"
               onClick={() => setIsOpen(false)}
             >
               Click to Register

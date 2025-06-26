@@ -11,9 +11,9 @@ const Hero = () => {
           {/* Party Logo */}
           <div className="mb-8">
             <img 
-              src="/lovable-uploads/logo.png" 
+              src="/lovable-uploads/8c558d27-8d21-4b3e-99dc-bfe0ccf75a78.png" 
               alt="People Unite for Change Logo" 
-              className="w-24 h-24 mx-auto object-contain"
+              className="w-32 h-32 mx-auto object-contain"
             />
           </div>
           
