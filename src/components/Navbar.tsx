@@ -20,9 +20,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center">
-                <span className="text-green-800 font-bold text-lg">P</span>
-              </div>
+              <img 
+                src="/lovable-uploads/logo.png" 
+                alt="People Unite for Change Logo" 
+                className="w-10 h-10 object-contain"
+              />
               <span className="font-bold text-xl text-white">People Unite for Change</span>
             </Link>
           </div>

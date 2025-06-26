@@ -8,6 +8,15 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black opacity-10"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <div className="text-center">
+          {/* Party Logo */}
+          <div className="mb-8">
+            <img 
+              src="/lovable-uploads/logo.png" 
+              alt="People Unite for Change Logo" 
+              className="w-24 h-24 mx-auto object-contain"
+            />
+          </div>
+          
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight font-century-gothic">
             Welcome to the website of <span className="text-yellow-400 font-arcon">People Unite for Change</span>
           </h1>
