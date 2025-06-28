@@ -25,13 +25,17 @@ const Hero = () => {
           </p>
           
           {/* President Section */}
-          <div className="bg-white text-gray-800 rounded-lg p-8 mt-12 max-w-md mx-auto">
-            <h2 className="text-2xl font-bold text-green-800 mb-4 font-century-gothic">President</h2>
-            <div className="w-32 h-32 bg-blue-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <div className="w-24 h-24 bg-blue-300 rounded-full"></div>
+          <div className="bg-white text-gray-800 rounded-lg p-8 mt-12 max-w-lg mx-auto shadow-2xl">
+            <h2 className="text-2xl font-bold text-green-800 mb-6 font-century-gothic">President</h2>
+            <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-green-200">
+              <img 
+                src="/lovable-uploads/ddf8f59d-e4ab-4785-b3f9-d78f05f6dd55.png" 
+                alt="President of People Unite for Change" 
+                className="w-full h-full object-cover"
+              />
             </div>
-            <h3 className="font-semibold text-lg mb-2 font-century-gothic">Candidate Name Here</h3>
-            <p className="text-sm text-gray-600 font-century-gothic">Party Leader & Presidential Candidate</p>
+            <h3 className="font-semibold text-xl mb-2 font-century-gothic text-green-800">Party Leader</h3>
+            <p className="text-base text-gray-600 font-century-gothic">Presidential Candidate</p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
