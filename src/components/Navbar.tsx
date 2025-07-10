@@ -42,7 +42,7 @@ const Navbar = () => {
               ))}
               <Link
                 to="/register"
-                className="bg-yellow-500 text-green-800 px-6 py-3 rounded-md text-lg font-medium hover:bg-yellow-400 transition-colors duration-200 font-bold"
+                className="bg-yellow-500 text-green-800 px-4 py-2 rounded-md text-base font-medium hover:bg-yellow-400 transition-colors duration-200 font-bold"
               >
                 Click to Register
               </Link>
@@ -75,7 +75,7 @@ const Navbar = () => {
             ))}
             <Link
               to="/register"
-              className="bg-yellow-500 text-green-800 block px-3 py-2 rounded-md text-lg font-medium hover:bg-yellow-400 transition-colors duration-200 mt-4 font-bold"
+              className="bg-yellow-500 text-green-800 block px-3 py-2 rounded-md text-base font-medium hover:bg-yellow-400 transition-colors duration-200 mt-4 font-bold"
               onClick={() => setIsOpen(false)}
             >
               Click to Register
