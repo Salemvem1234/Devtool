@@ -54,6 +54,26 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Welcome Message Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-6">
+            Welcome Back
+          </h2>
+          <p className="text-lg text-gray-700 leading-relaxed">
+            Thank you for visiting our website. People Unite for Change is committed to 
+            building a stronger, more unified Namibia through democratic participation, 
+            transparent governance, and policies that serve all citizens. Join us as we 
+            work together to create positive change for our nation's future.
+          </p>
+          <div className="mt-8">
+            <button className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-200">
+              Get Involved Today
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
