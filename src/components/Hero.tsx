@@ -16,20 +16,20 @@ const Hero = () => {
           </p>
           
           {/* President Section */}
-          <div className="bg-white text-gray-800 rounded-lg p-8 mt-12 max-w-lg mx-auto shadow-2xl">
-            <h2 className="text-2xl font-bold text-green-800 mb-6 font-century-gothic">President</h2>
+          <div className="mt-12 max-w-lg mx-auto">
+            <h2 className="text-2xl font-bold text-white mb-6 font-century-gothic">President</h2>
             
             {/* President Photo */}
             <div className="mb-6">
               <img 
                 src="/lovable-uploads/559d1cf7-11e1-4994-93a1-81d83aafc84d.png" 
                 alt="Party President" 
-                className="w-32 h-40 object-cover rounded-lg mx-auto shadow-lg"
+                className="w-48 h-60 object-cover rounded-lg mx-auto shadow-lg"
               />
             </div>
             
-            <h3 className="font-semibold text-xl mb-2 font-century-gothic text-green-800">Party Leader</h3>
-            <p className="text-base text-gray-600 font-century-gothic">Presidential Candidate</p>
+            <h3 className="font-semibold text-xl mb-2 font-century-gothic text-white">Party Leader</h3>
+            <p className="text-base text-gray-200 font-century-gothic">Presidential Candidate</p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
