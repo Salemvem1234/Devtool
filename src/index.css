@@ -9,44 +9,44 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 45 40% 92%;
-    --foreground: 20 14% 20%;
+    --background: 45 25% 88%;
+    --foreground: 0 0% 15%;
 
-    --card: 45 30% 88%;
-    --card-foreground: 20 14% 20%;
+    --card: 45 25% 92%;
+    --card-foreground: 0 0% 15%;
 
-    --popover: 45 30% 88%;
-    --popover-foreground: 20 14% 20%;
+    --popover: 45 25% 92%;
+    --popover-foreground: 0 0% 15%;
 
-    --primary: 0 73% 41%;
+    --primary: 0 85% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 50 60% 55%;
-    --secondary-foreground: 20 14% 20%;
+    --secondary: 45 90% 60%;
+    --secondary-foreground: 0 0% 15%;
 
-    --muted: 45 25% 85%;
-    --muted-foreground: 20 14% 45%;
+    --muted: 45 20% 85%;
+    --muted-foreground: 0 0% 35%;
 
-    --accent: 195 100% 50%;
+    --accent: 210 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 45 20% 80%;
-    --input: 45 20% 80%;
-    --ring: 0 73% 41%;
+    --border: 0 0% 70%;
+    --input: 0 0% 70%;
+    --ring: 0 85% 45%;
 
-    --radius: 1rem;
+    --radius: 0.5rem;
 
-    --sidebar-background: 45 40% 92%;
-    --sidebar-foreground: 20 14% 20%;
-    --sidebar-primary: 0 73% 41%;
+    --sidebar-background: 45 25% 88%;
+    --sidebar-foreground: 0 0% 15%;
+    --sidebar-primary: 0 85% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 45 25% 85%;
-    --sidebar-accent-foreground: 20 14% 20%;
-    --sidebar-border: 45 20% 80%;
-    --sidebar-ring: 0 73% 41%;
+    --sidebar-accent: 45 20% 85%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    --sidebar-border: 0 0% 70%;
+    --sidebar-ring: 0 85% 45%;
   }
 
   .dark {
@@ -59,16 +59,16 @@ All colors MUST be HSL.
     --popover: 20 14% 18%;
     --popover-foreground: 45 40% 92%;
 
-    --primary: 0 73% 50%;
+    --primary: 0 85% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 50 40% 35%;
-    --secondary-foreground: 45 40% 92%;
+    --secondary: 45 70% 50%;
+    --secondary-foreground: 0 0% 15%;
 
     --muted: 20 14% 25%;
     --muted-foreground: 45 20% 65%;
 
-    --accent: 195 100% 40%;
+    --accent: 210 100% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
@@ -76,15 +76,15 @@ All colors MUST be HSL.
 
     --border: 20 14% 30%;
     --input: 20 14% 30%;
-    --ring: 0 73% 50%;
+    --ring: 0 85% 55%;
     --sidebar-background: 20 14% 15%;
     --sidebar-foreground: 45 40% 92%;
-    --sidebar-primary: 0 73% 50%;
+    --sidebar-primary: 0 85% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 20 14% 25%;
     --sidebar-accent-foreground: 45 40% 92%;
     --sidebar-border: 20 14% 30%;
-    --sidebar-ring: 0 73% 50%;
+    --sidebar-ring: 0 85% 55%;
   }
 }
 
@@ -94,20 +94,33 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }
 
-/* Custom rounded section styling */
-.rounded-section {
-  background: hsl(var(--card));
-  border-radius: 2rem;
+/* Reference design styling */
+.hero-section {
+  background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(45 30% 90%) 100%);
+  border-radius: 20px;
   border: 2px solid hsl(var(--border));
-  margin: 1rem 0;
+  padding: 3rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.content-section {
+  background: hsl(var(--card));
+  border-radius: 15px;
+  border: 1px solid hsl(var(--border));
+  margin: 1.5rem 0;
   padding: 2rem;
 }
 
 .page-container {
   background: hsl(var(--background));
   min-height: 100vh;
+}
+
+.nav-gradient {
+  background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(0 75% 50%) 100%);
 }

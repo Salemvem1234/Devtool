@@ -1,27 +1,42 @@
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary py-8 mt-8">
+    <footer className="nav-gradient py-12 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="text-center md:text-left mb-4 md:mb-0">
-            <h3 className="text-2xl font-bold text-secondary-foreground">Axaphonics</h3>
-            <p className="text-secondary-foreground/80 mt-1">Learn Phonics the Fun Way!</p>
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Brand Section */}
+          <div className="text-center md:text-left">
+            <h3 className="text-3xl font-bold text-white mb-3">Axaphonics</h3>
+            <p className="text-white/90 text-lg mb-4">Learn Phonics the Fun Way!</p>
+            <p className="text-white/80">
+              Building strong reading foundations through engaging and effective phonics education.
+            </p>
           </div>
           
-          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
-            <p className="text-secondary-foreground/80 text-sm">
-              © 2024 Axaphonics. All rights reserved.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-secondary-foreground/80 hover:text-secondary-foreground transition-colors">
-                Terms of Service
-              </a>
+          {/* Contact Info */}
+          <div className="text-center">
+            <h4 className="text-xl font-semibold text-white mb-4">Get In Touch</h4>
+            <div className="space-y-2 text-white/90">
+              <p>axaphonics@gmail.com</p>
+              <p>+27 (0) 11 234 5678</p>
+              <p>axaphonics.co.za</p>
             </div>
           </div>
+          
+          {/* Social Links */}
+          <div className="text-center md:text-right">
+            <h4 className="text-xl font-semibold text-white mb-4">Follow Us</h4>
+            <div className="space-y-2 text-white/90">
+              <p>facebook.com/axaphonics</p>
+              <p>instagram.com/axaphonics</p>
+            </div>
+          </div>
+        </div>
+        
+        <div className="border-t border-white/20 mt-8 pt-8 text-center">
+          <p className="text-white/80">
+            © 2024 Axaphonics. All rights reserved. | Privacy Policy | Terms of Service
+          </p>
         </div>
       </div>
     </footer>

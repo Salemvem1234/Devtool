@@ -1,39 +1,41 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { BookOpen, Users, Award, Star } from 'lucide-react';
+import { BookOpen, Users, Award, Star, Heart, GraduationCap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
     <div className="page-container">
-      {/* Hero Section */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-section text-center">
+      {/* Hero Section - Matching reference design */}
+      <section className="py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="hero-section">
             <div className="flex justify-center mb-8">
               <div className="relative">
-                <BookOpen size={80} className="text-primary" />
+                <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center">
+                  <BookOpen size={48} className="text-primary" />
+                </div>
                 <div className="absolute -top-2 -right-2 bg-secondary rounded-full p-2">
-                  <Star size={24} className="text-secondary-foreground" />
+                  <Star size={20} className="text-secondary-foreground" />
                 </div>
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-6xl md:text-7xl font-bold text-foreground mb-4">
               Welcome
             </h1>
-            <h2 className="text-3xl md:text-4xl font-semibold text-primary mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-8">
               Learn Phonics the Fun Way!
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
               Where quality teaching and lesson planning of Axaphonics will take place. 
-              Our balance reading learning provides fun and effective programs designed to build
+              Our balanced reading learning provides fun and effective programs designed to build
               strong foundations in reading through engaging lessons and activities.
             </p>
             
             <Link to="/services">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg rounded-full shadow-lg">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-4 text-xl rounded-full shadow-xl transform hover:scale-105 transition-all duration-200">
                 Get Started
               </Button>
             </Link>
@@ -41,54 +43,62 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-8">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-section">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">Why Choose Axaphonics?</h2>
-              <p className="text-lg text-muted-foreground">Discover the benefits of our proven phonics approach</p>
+      {/* Features Section - Precise layout */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="content-section">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-foreground mb-6">Why Choose Axaphonics?</h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Discover the benefits of our proven phonics approach designed for every learner
+              </p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <Card className="text-center bg-card/50 border-2 border-border hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="mx-auto bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                    <BookOpen className="text-primary" size={32} />
+              {/* Early Learners Card */}
+              <Card className="text-center bg-card border-2 border-border hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <CardHeader className="pb-4">
+                  <div className="mx-auto bg-primary/10 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                    <Heart className="text-primary" size={40} />
                   </div>
-                  <CardTitle className="text-xl text-foreground">Quality Teaching</CardTitle>
+                  <CardTitle className="text-2xl text-foreground">Early Learners</CardTitle>
+                  <p className="text-lg text-primary font-semibold">Ages 4-6</p>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    Expert-designed curriculum that makes learning phonics engaging and effective for all age groups.
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    Foundation phonics program with interactive games and activities that make learning fun and engaging for young children.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="text-center bg-card/50 border-2 border-border hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="mx-auto bg-secondary/30 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                    <Users className="text-secondary-foreground" size={32} />
+              {/* Primary School Card */}
+              <Card className="text-center bg-card border-2 border-border hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <CardHeader className="pb-4">
+                  <div className="mx-auto bg-secondary/30 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                    <BookOpen className="text-secondary-foreground" size={40} />
                   </div>
-                  <CardTitle className="text-xl text-foreground">All Ages Welcome</CardTitle>
+                  <CardTitle className="text-2xl text-foreground">Primary School</CardTitle>
+                  <p className="text-lg text-secondary-foreground font-semibold">Ages 7-10</p>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    From early learners to teenagers, our programs are tailored to meet every student's needs.
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    Advanced phonics and spelling program that builds on foundation skills with complex reading and writing activities.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="text-center bg-card/50 border-2 border-border hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="mx-auto bg-accent/20 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                    <Award className="text-accent" size={32} />
+              {/* Teenagers Card */}
+              <Card className="text-center bg-card border-2 border-border hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <CardHeader className="pb-4">
+                  <div className="mx-auto bg-accent/20 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                    <GraduationCap className="text-accent" size={40} />
                   </div>
-                  <CardTitle className="text-xl text-foreground">Proven Results</CardTitle>
+                  <CardTitle className="text-2xl text-foreground">Teenagers</CardTitle>
+                  <p className="text-lg text-accent font-semibold">Ages 11-14</p>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">
-                    Our balanced approach to reading has helped thousands of students build strong foundations.
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    Specialized program for older students who need additional support with reading, spelling, and confidence building.
                   </p>
                 </CardContent>
               </Card>
@@ -97,25 +107,87 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Results Section */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="content-section">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-foreground mb-6">Proven Results</h2>
+              <p className="text-xl text-muted-foreground">
+                Our balanced approach has helped thousands of students succeed
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Award className="text-primary" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground">15+ Years Experience</h3>
+                      <p className="text-muted-foreground">Proven track record in phonics education</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-secondary/30 rounded-full flex items-center justify-center">
+                      <Users className="text-secondary-foreground" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground">All Ages Welcome</h3>
+                      <p className="text-muted-foreground">Tailored programs for every learning stage</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center">
+                      <Star className="text-accent" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground">Engaging Methods</h3>
+                      <p className="text-muted-foreground">Fun and interactive learning approaches</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-br from-primary/10 to-secondary/20 rounded-2xl p-8 text-center">
+                <h3 className="text-3xl font-bold text-primary mb-4">Ready to Begin?</h3>
+                <p className="text-xl text-muted-foreground mb-6">
+                  Join our community of successful learners today
+                </p>
+                <Link to="/contact">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg">
+                    Contact Us Today
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-8">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-section bg-primary text-center">
-            <h2 className="text-3xl font-bold text-primary-foreground mb-4">
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="hero-section bg-gradient-to-r from-primary to-primary/80">
+            <h2 className="text-4xl font-bold text-primary-foreground mb-6">
               Ready to Start Your Phonics Journey?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8">
-              Join thousands of students who have improved their reading skills with Axaphonics
+            <p className="text-xl text-primary-foreground/90 mb-10 max-w-3xl mx-auto">
+              Join thousands of students who have improved their reading skills with our comprehensive phonics programs
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/services">
-                <Button size="lg" variant="secondary" className="bg-card text-foreground hover:bg-card/90 px-8 py-3">
-                  View Services
+                <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90 px-10 py-4 text-lg font-semibold">
+                  View Our Services
                 </Button>
               </Link>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8 py-3">
-                  Contact Us
+              <Link to="/about">
+                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-10 py-4 text-lg font-semibold">
+                  Learn More About Us
                 </Button>
               </Link>
             </div>
