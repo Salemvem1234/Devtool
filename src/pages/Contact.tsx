@@ -1,103 +1,112 @@
 
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Mail, Phone, MapPin, Clock, Facebook, Twitter, Instagram } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { useState } from 'react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     message: ''
   });
-  const { toast } = useToast();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. We'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    console.log('Form submitted:', formData);
+    // Handle form submission here
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-yellow-50">
-      {/* Header Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Contact Us</h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Get in touch with us to learn more about our phonics programs or to schedule a consultation
-            </p>
-          </div>
+    <div className="page-container">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header */}
+        <div className="rounded-section text-center mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Contact
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            Get in touch with us to learn more about our phonics programs
+          </p>
+        </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+        {/* Contact Form and Info */}
+        <div className="rounded-section">
+          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Contact Us</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Form */}
-            <Card className="shadow-xl">
+            <Card className="bg-card/50 border-2 border-border">
               <CardHeader>
-                <CardTitle className="text-2xl text-gray-900">Send us a Message</CardTitle>
+                <CardTitle className="text-xl text-foreground">Send us a message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <Label htmlFor="name" className="text-gray-700">Your Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="mt-1"
-                      placeholder="Enter your full name"
-                    />
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="firstName" className="text-foreground">First Name</Label>
+                      <Input
+                        id="firstName"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        className="mt-1 bg-background border-border"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="lastName" className="text-foreground">Last Name</Label>
+                      <Input
+                        id="lastName"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        className="mt-1 bg-background border-border"
+                        required
+                      />
+                    </div>
                   </div>
                   
                   <div>
-                    <Label htmlFor="email" className="text-gray-700">Your Email</Label>
+                    <Label htmlFor="email" className="text-foreground">Email</Label>
                     <Input
                       id="email"
                       name="email"
                       type="email"
                       value={formData.email}
-                      onChange={handleChange}
+                      onChange={handleInputChange}
+                      className="mt-1 bg-background border-border"
                       required
-                      className="mt-1"
-                      placeholder="Enter your email address"
                     />
                   </div>
                   
                   <div>
-                    <Label htmlFor="message" className="text-gray-700">Your Message</Label>
-                    <Textarea
+                    <Label htmlFor="message" className="text-foreground">Message</Label>
+                    <textarea
                       id="message"
                       name="message"
                       value={formData.message}
-                      onChange={handleChange}
+                      onChange={handleInputChange}
+                      rows={4}
+                      className="mt-1 w-full px-3 py-2 bg-background border border-border rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                      placeholder="Tell us about your phonics learning needs..."
                       required
-                      className="mt-1 min-h-[120px]"
-                      placeholder="Tell us about your needs or ask any questions..."
                     />
                   </div>
                   
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-red-600 hover:bg-red-700 text-white py-3 text-lg"
-                  >
+                  <Button type="submit" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+                    <Send className="w-4 h-4 mr-2" />
                     Send Message
                   </Button>
                 </form>
@@ -105,96 +114,69 @@ const Contact = () => {
             </Card>
 
             {/* Contact Information */}
-            <div className="space-y-8">
-              <Card className="shadow-lg">
+            <div className="space-y-6">
+              <Card className="bg-card/50 border-2 border-border">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-gray-900">Reach Us Through</CardTitle>
+                  <CardTitle className="text-xl text-foreground">Reach Us Through</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center">
-                      <Mail className="text-red-600" size={24} />
+                <CardContent className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-primary/10 rounded-full">
+                      <Mail className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">Email</h3>
-                      <p className="text-gray-600">axaphonics@gmail.com</p>
+                      <p className="text-sm text-muted-foreground">Email</p>
+                      <p className="text-foreground font-medium">axaphonics@gmail.com</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
-                      <Phone className="text-blue-600" size={24} />
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-secondary/30 rounded-full">
+                      <Phone className="w-5 h-5 text-secondary-foreground" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">Phone</h3>
-                      <p className="text-gray-600">Phone: 72 (0) 11 516 1966</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-green-100 w-12 h-12 rounded-full flex items-center justify-center">
-                      <MapPin className="text-green-600" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900">Location</h3>
-                      <p className="text-gray-600">Johannesburg, South Africa</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center">
-                      <Clock className="text-purple-600" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900">Office Hours</h3>
-                      <p className="text-gray-600">Mon - Fri: 9:00 AM - 5:00 PM</p>
+                      <p className="text-sm text-muted-foreground">Phone</p>
+                      <p className="text-foreground font-medium">+27 (0) 11 234 5678</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="shadow-lg">
+              <Card className="bg-card/50 border-2 border-border">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-gray-900">Social Network</CardTitle>
+                  <CardTitle className="text-xl text-foreground">Social Network</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <a 
-                      href="#" 
-                      className="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                    >
-                      <div className="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center">
-                        <Facebook className="text-blue-600" size={20} />
-                      </div>
-                      <span className="text-gray-700 font-medium">axaphonics.edu</span>
-                    </a>
-                    
-                    <a 
-                      href="#" 
-                      className="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                    >
-                      <div className="bg-blue-100 w-10 h-10 rounded-full flex items-center justify-center">
-                        <Twitter className="text-blue-400" size={20} />
-                      </div>
-                      <span className="text-gray-700 font-medium">@axaphonics</span>
-                    </a>
-                    
-                    <a 
-                      href="#" 
-                      className="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                    >
-                      <div className="bg-pink-100 w-10 h-10 rounded-full flex items-center justify-center">
-                        <Instagram className="text-pink-600" size={20} />
-                      </div>
-                      <span className="text-gray-700 font-medium">axaphonics_official</span>
-                    </a>
+                <CardContent className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-accent rounded-full"></div>
+                    <span className="text-foreground">axaphonics.co.za</span>
                   </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-accent rounded-full"></div>
+                    <span className="text-foreground">facebook.com/axaphonics</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-accent rounded-full"></div>
+                    <span className="text-foreground">instagram.com/axaphonics</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-primary text-center">
+                <CardContent className="pt-6 pb-6">
+                  <h3 className="text-xl font-bold text-primary-foreground mb-2">Ready to Start?</h3>
+                  <p className="text-primary-foreground/90 mb-4">
+                    Contact us today to begin your phonics journey
+                  </p>
+                  <Button variant="secondary" className="bg-card text-foreground hover:bg-card/90">
+                    Get Started Now
+                  </Button>
                 </CardContent>
               </Card>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

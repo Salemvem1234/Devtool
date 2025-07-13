@@ -1,169 +1,137 @@
 
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Award, BookOpen, Users, Target, Heart, Star } from 'lucide-react';
+import { User, Award, BookOpen, Heart } from 'lucide-react';
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-yellow-50">
-      {/* Header Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">About Veronica V.Axakhoes</h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Dedicated educator and phonics specialist with a passion for helping students achieve reading success
-            </p>
-          </div>
+    <div className="page-container">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header */}
+        <div className="rounded-section text-center mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            About
+          </h1>
+          <h2 className="text-2xl font-semibold text-primary mb-4">
+            About Veronica Axakhoes
+          </h2>
+        </div>
 
-          {/* Profile Section */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <div className="flex items-center mb-6">
-                <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mr-4">
-                  <BookOpen className="text-red-600" size={32} />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-900">Mrs V.Axakhoes</h2>
-                  <p className="text-gray-600">Founder & Lead Educator</p>
-                </div>
+        {/* Main About Section */}
+        <div className="rounded-section mb-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="md:col-span-1 flex justify-center">
+              <div className="w-48 h-48 bg-primary/10 rounded-full flex items-center justify-center border-4 border-primary/20">
+                <User size={80} className="text-primary" />
               </div>
-              
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                With over 15 years of experience in phonics education, Mrs. V.Axakhoes has dedicated her career to 
-                developing innovative teaching methods that make learning to read both effective and enjoyable. Her 
-                approach combines traditional phonics principles with modern educational techniques.
-              </p>
-              
-              <p className="text-gray-700 leading-relaxed">
-                She holds advanced certifications in reading instruction and has helped thousands of students 
-                overcome reading challenges while building confidence in their literacy skills.
-              </p>
             </div>
-
-            <div className="space-y-6">
-              <Card className="hover:shadow-lg transition-shadow">
+            
+            <div className="md:col-span-2">
+              <Card className="bg-card/50 border-2 border-border h-full">
                 <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="flex items-center text-xl">
-                      <Award className="text-yellow-600 mr-3" size={24} />
-                      Qualifications
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-center">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
-                      Master's in Education (Reading Specialist)
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
-                      Certified Phonics Instructor
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
-                      Special Needs Education Certificate
-                    </li>
-                    <li className="flex items-center">
-                      <div className="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
-                      15+ Years Teaching Experience
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="flex items-center text-xl">
-                    <Star className="text-yellow-600 mr-3" size={24} />
-                    Specializations
+                  <CardTitle className="text-2xl text-foreground flex items-center gap-3">
+                    <Award className="w-6 h-6 text-secondary" />
+                    Mrs. V. Axakhoes
                   </CardTitle>
+                  <p className="text-lg text-primary font-semibold">Founder & Lead Educator</p>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge className="bg-blue-500">Early Childhood</Badge>
-                    <Badge className="bg-green-500">Remedial Reading</Badge>
-                    <Badge className="bg-purple-500">Adult Literacy</Badge>
-                    <Badge className="bg-orange-500">Special Needs</Badge>
-                  </div>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    With over 15 years of experience in phonics education, Mrs. Veronica Axakhoes has dedicated her career to helping students of all ages develop strong reading foundations. Her passion for education and innovative teaching methods have transformed countless lives.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    She holds advanced certifications in phonics instruction and has developed unique methodologies that make learning both effective and enjoyable for students from early childhood through teenage years.
+                  </p>
                 </CardContent>
               </Card>
-            </div>
-          </div>
-
-          {/* Mission & Vision */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <Card className="bg-gradient-to-br from-red-50 to-red-100 border-red-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-2xl text-red-800">
-                  <Target className="mr-3" size={28} />
-                  Our Mission
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-red-700 leading-relaxed">
-                  To provide exceptional phonics education that empowers students of all ages to become confident, 
-                  fluent readers. We believe that strong reading foundations open doors to lifelong learning and success.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-yellow-50 to-yellow-100 border-yellow-200 hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center text-2xl text-yellow-800">
-                  <Heart className="mr-3" size={28} />
-                  Our Approach
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-yellow-700 leading-relaxed">
-                  We combine proven phonics methods with personalized attention, ensuring each student receives 
-                  the support they need to succeed. Our patient, encouraging approach builds both skills and confidence.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Stats Section */}
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Impact</h2>
-            <div className="grid md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="text-blue-600" size={32} />
-                </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">2,500+</div>
-                <p className="text-gray-600">Students Taught</p>
-              </div>
-              
-              <div>
-                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BookOpen className="text-green-600" size={32} />
-                </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">15</div>
-                <p className="text-gray-600">Years Experience</p>
-              </div>
-              
-              <div>
-                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="text-purple-600" size={32} />
-                </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">98%</div>
-                <p className="text-gray-600">Success Rate</p>
-              </div>
-              
-              <div>
-                <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Star className="text-orange-600" size={32} />
-                </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">50+</div>
-                <p className="text-gray-600">Programs Developed</p>
-              </div>
             </div>
           </div>
         </div>
-      </section>
+
+        {/* Veronica's Approach */}
+        <div className="rounded-section mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Veronica's Approach</h2>
+          <Card className="bg-card/50 border-2 border-border">
+            <CardContent className="pt-6">
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                "Every child deserves to experience the joy of reading. My approach combines proven phonics methods with creative, engaging activities that make learning natural and fun. I believe that with the right foundation, every student can become a confident reader."
+              </p>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Heart className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Personalized Care</h3>
+                  <p className="text-sm text-muted-foreground">Individual attention for every student's unique learning style</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-secondary/30 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <BookOpen className="w-8 h-8 text-secondary-foreground" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Proven Methods</h3>
+                  <p className="text-sm text-muted-foreground">Research-based techniques that deliver consistent results</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Award className="w-8 h-8 text-accent" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">Excellence</h3>
+                  <p className="text-sm text-muted-foreground">Commitment to the highest standards of education</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Mission Statement */}
+        <div className="rounded-section mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Our Mission</h2>
+          <Card className="bg-primary text-center border-2 border-primary">
+            <CardContent className="pt-8 pb-8">
+              <p className="text-primary-foreground text-lg leading-relaxed mb-4">
+                "To provide exceptional phonics education that builds confident, capable readers and lifelong learners. 
+                We are committed to making reading accessible, enjoyable, and successful for students of all ages and abilities."
+              </p>
+              <Button variant="secondary" size="lg" className="bg-card text-foreground hover:bg-card/90">
+                Join Our Community
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Qualifications */}
+        <div className="rounded-section">
+          <h2 className="text-3xl font-bold text-foreground mb-6">Qualifications & Experience</h2>
+          <div className="space-y-4">
+            <Card className="bg-card/50 border-2 border-border">
+              <CardContent className="pt-4">
+                <ul className="space-y-3 text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Master's Degree in Education with specialization in Reading and Literacy</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Certified Phonics Instructor with advanced training credentials</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <span>15+ years of hands-on teaching experience across all age groups</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Developer of innovative phonics curricula and teaching methodologies</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <span>Recognized educator with awards for excellence in literacy instruction</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
