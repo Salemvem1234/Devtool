@@ -1,100 +1,165 @@
 
-import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { User, Award, BookOpen, Heart, GraduationCap, Star } from 'lucide-react';
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-green-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            About People Unite for Change
+    <div className="page-container">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Header */}
+        <div className="hero-section mb-12">
+          <h1 className="text-6xl md:text-7xl font-bold text-foreground mb-6">
+            About Us
           </h1>
-          <p className="text-xl text-center max-w-3xl mx-auto">
-            Discover our story, mission, and vision for a better Namibia
+          <h2 className="text-3xl font-semibold text-primary mb-6">
+            Meet Veronica Axakhoes
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            Discover the passion and expertise behind Axaphonics - where quality phonics education meets innovative teaching methods.
           </p>
         </div>
-      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <h2 className="text-3xl font-bold text-green-800 mb-6">Our Story</h2>
-            <p className="text-gray-600 mb-4">
-              People Unite for Change was founded in 2024 as a response to the growing need for 
-              fresh perspectives and innovative solutions in Namibian politics. Born from grassroots 
-              movements across the country, our party represents the voice of citizens who believe 
-              in the power of unity and democratic change.
-            </p>
-            <p className="text-gray-600 mb-4">
-              We emerged from town halls, community gatherings, and conversations with ordinary 
-              Namibians who shared a common vision: a country where every citizen has equal 
-              opportunities, where transparency guides governance, and where progress benefits all.
-            </p>
-          </div>
-          <div className="bg-white p-8 rounded-lg shadow-lg border-l-4 border-green-600">
-            <div className="w-24 h-24 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6">
-              <span className="text-green-800 font-bold text-3xl">P</span>
+        {/* Main About Section */}
+        <div className="content-section mb-12">
+          <div className="grid md:grid-cols-3 gap-12">
+            <div className="md:col-span-1 flex justify-center">
+              <div className="w-64 h-64 bg-gradient-to-br from-primary/10 to-secondary/20 rounded-full flex items-center justify-center border-4 border-primary/20 shadow-2xl">
+                <User size={120} className="text-primary" />
+              </div>
             </div>
-            <h3 className="text-xl font-semibold text-center text-green-800 mb-4">Party Logo</h3>
-            <p className="text-gray-600 text-center">
-              Our logo represents unity, progress, and the collective strength of the Namibian people.
-            </p>
+            
+            <div className="md:col-span-2">
+              <Card className="bg-card border-2 border-border h-full">
+                <CardHeader>
+                  <CardTitle className="text-3xl text-foreground flex items-center gap-4">
+                    <Award className="w-8 h-8 text-secondary" />
+                    Mrs. Veronica Axakhoes
+                  </CardTitle>
+                  <p className="text-xl text-primary font-bold">Founder & Lead Educator</p>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+                    With over 15 years of experience in phonics education, Mrs. Veronica Axakhoes has dedicated her career to helping students of all ages develop strong reading foundations. Her passion for education and innovative teaching methods have transformed countless lives.
+                  </p>
+                  <p className="text-muted-foreground text-lg leading-relaxed">
+                    She holds advanced certifications in phonics instruction and has developed unique methodologies that make learning both effective and enjoyable for students from early childhood through teenage years.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="bg-white p-8 rounded-lg shadow-lg border-l-4 border-green-600">
-            <h3 className="text-2xl font-bold text-green-800 mb-4">Our Mission</h3>
-            <p className="text-gray-600">
-              To serve as a catalyst for positive change in Namibia by promoting democratic values, 
-              ensuring transparent governance, and implementing policies that create opportunities 
-              for all citizens to thrive and contribute to our nation's development.
-            </p>
-          </div>
-          
-          <div className="bg-white p-8 rounded-lg shadow-lg border-l-4 border-yellow-500">
-            <h3 className="text-2xl font-bold text-green-800 mb-4">Our Vision</h3>
-            <p className="text-gray-600">
-              A prosperous, united, and equitable Namibia where every citizen enjoys equal rights, 
-              opportunities, and access to quality education, healthcare, and economic participation, 
-              while preserving our natural heritage for future generations.
-            </p>
-          </div>
+        {/* Philosophy Section */}
+        <div className="content-section mb-12">
+          <h2 className="text-4xl font-bold text-foreground mb-8 text-center">Teaching Philosophy</h2>
+          <Card className="bg-gradient-to-br from-card to-muted/50 border-2 border-border">
+            <CardContent className="pt-8">
+              <blockquote className="text-2xl text-muted-foreground font-medium leading-relaxed mb-8 text-center italic">
+                "Every child deserves to experience the joy of reading. My approach combines proven phonics methods with creative, engaging activities that make learning natural and fun. I believe that with the right foundation, every student can become a confident reader."
+              </blockquote>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Heart className="w-10 h-10 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Personalized Care</h3>
+                  <p className="text-muted-foreground leading-relaxed">Individual attention for every student's unique learning style and pace</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-secondary/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <BookOpen className="w-10 h-10 text-secondary-foreground" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Proven Methods</h3>
+                  <p className="text-muted-foreground leading-relaxed">Research-based techniques that deliver consistent and measurable results</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Award className="w-10 h-10 text-accent" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">Excellence</h3>
+                  <p className="text-muted-foreground leading-relaxed">Unwavering commitment to the highest standards of education</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-8 border-t-4 border-green-600">
-          <h3 className="text-2xl font-bold text-green-800 mb-6 text-center">Why We Were Formed</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-xl">💡</span>
-              </div>
-              <h4 className="font-semibold text-green-800 mb-2">Innovation</h4>
-              <p className="text-gray-600 text-sm">
-                Bringing fresh ideas and modern solutions to traditional challenges
+        {/* Mission Statement */}
+        <div className="content-section mb-12">
+          <h2 className="text-4xl font-bold text-foreground mb-8 text-center">Our Mission</h2>
+          <Card className="bg-gradient-to-r from-primary to-primary/80 text-center border-2 border-primary">
+            <CardContent className="pt-12 pb-12">
+              <p className="text-xl text-primary-foreground leading-relaxed mb-8 max-w-4xl mx-auto">
+                "To provide exceptional phonics education that builds confident, capable readers and lifelong learners. 
+                We are committed to making reading accessible, enjoyable, and successful for students of all ages and abilities 
+                through innovative teaching methods and personalized instruction."
               </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-xl">👥</span>
+              <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90 px-10 py-4 text-xl font-semibold">
+                Join Our Learning Community
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Qualifications */}
+        <div className="content-section mb-12">
+          <h2 className="text-4xl font-bold text-foreground mb-8">Professional Qualifications & Experience</h2>
+          <Card className="bg-card border-2 border-border">
+            <CardContent className="pt-8">
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-3 h-3 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">Master's Degree in Education</h3>
+                    <p className="text-muted-foreground text-lg">Specialization in Reading and Literacy with advanced research in phonics instruction</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-3 h-3 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">Certified Phonics Instructor</h3>
+                    <p className="text-muted-foreground text-lg">Advanced training credentials with ongoing professional development</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-3 h-3 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">15+ Years Teaching Experience</h3>
+                    <p className="text-muted-foreground text-lg">Hands-on teaching experience across all age groups from early learners to teens</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-3 h-3 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">Curriculum Developer</h3>
+                    <p className="text-muted-foreground text-lg">Creator of innovative phonics curricula and teaching methodologies</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-3 h-3 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">Award-Winning Educator</h3>
+                    <p className="text-muted-foreground text-lg">Recognized educator with multiple awards for excellence in literacy instruction</p>
+                  </div>
+                </div>
               </div>
-              <h4 className="font-semibold text-green-800 mb-2">Representation</h4>
-              <p className="text-gray-600 text-sm">
-                Ensuring all voices are heard in the democratic process
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-xl">🎯</span>
-              </div>
-              <h4 className="font-semibold text-green-800 mb-2">Accountability</h4>
-              <p className="text-gray-600 text-sm">
-                Maintaining transparency and responsibility in all our actions
-              </p>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Success Stories */}
+        <div className="hero-section bg-gradient-to-br from-secondary/20 to-accent/20">
+          <h2 className="text-4xl font-bold text-foreground mb-6">
+            Transforming Lives Through Reading
+          </h2>
+          <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto">
+            Over the years, we've helped thousands of students discover the joy of reading and build the confidence they need to succeed in their educational journey.
+          </p>
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-4 text-xl font-semibold">
+            Start Your Learning Journey
+          </Button>
         </div>
       </div>
     </div>

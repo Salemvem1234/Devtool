@@ -1,67 +1,41 @@
 
-import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
 const Footer = () => {
   return (
-    <footer className="bg-green-800 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center">
-                <span className="text-green-800 font-bold text-lg">P</span>
-              </div>
-              <span className="font-bold text-xl">People Unite for Change</span>
-            </div>
-            <p className="text-green-100 mb-4 max-w-md">
-              Building a stronger, more unified Namibia through democratic values, 
-              transparency, and progressive policies that serve all citizens.
+    <footer className="nav-gradient py-12 mt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Brand Section */}
+          <div className="text-center md:text-left">
+            <h3 className="text-3xl font-bold text-white mb-3">Axaphonics</h3>
+            <p className="text-white/90 text-lg mb-4">Learn Phonics the Fun Way!</p>
+            <p className="text-white/80">
+              Building strong reading foundations through engaging and effective phonics education.
             </p>
-            <div className="space-y-2">
-              <div className="flex items-center">
-                <Phone size={16} className="mr-2 text-yellow-400" />
-                <span className="text-green-100">+264 61 123 4567</span>
-              </div>
-              <div className="flex items-center">
-                <Mail size={16} className="mr-2 text-yellow-400" />
-                <span className="text-green-100">info@peopleuniteforchange.na</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin size={16} className="mr-2 text-yellow-400" />
-                <span className="text-green-100">Windhoek, Namibia</span>
-              </div>
+          </div>
+          
+          {/* Contact Info */}
+          <div className="text-center">
+            <h4 className="text-xl font-semibold text-white mb-4">Get In Touch</h4>
+            <div className="space-y-2 text-white/90">
+              <p>axaphonics@gmail.com</p>
+              <p>+27 (0) 11 234 5678</p>
+              <p>axaphonics.co.za</p>
             </div>
           </div>
           
-          <div>
-            <h3 className="font-semibold text-lg mb-4 text-yellow-400">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-green-100 hover:text-white transition-colors">Home</Link></li>
-              <li><Link to="/about" className="text-green-100 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/documents" className="text-green-100 hover:text-white transition-colors">Documents</Link></li>
-              <li><Link to="/media" className="text-green-100 hover:text-white transition-colors">Media</Link></li>
-              <li><Link to="/contact" className="text-green-100 hover:text-white transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold text-lg mb-4 text-yellow-400">Get Involved</h3>
-            <ul className="space-y-2">
-              <li><Link to="/register" className="text-green-100 hover:text-white transition-colors">Register as Member</Link></li>
-              <li><Link to="/volunteer" className="text-green-100 hover:text-white transition-colors">Volunteer</Link></li>
-              <li><Link to="/donate" className="text-green-100 hover:text-white transition-colors">Support Us</Link></li>
-              <li><Link to="/events" className="text-green-100 hover:text-white transition-colors">Events</Link></li>
-            </ul>
+          {/* Social Links */}
+          <div className="text-center md:text-right">
+            <h4 className="text-xl font-semibold text-white mb-4">Follow Us</h4>
+            <div className="space-y-2 text-white/90">
+              <p>facebook.com/axaphonics</p>
+              <p>instagram.com/axaphonics</p>
+            </div>
           </div>
         </div>
         
-        <div className="border-t border-green-700 mt-8 pt-8 text-center">
-          <p className="text-green-200">
-            © 2024 People Unite for Change. All rights reserved. | 
-            <Link to="/privacy" className="hover:text-white ml-1">Privacy Policy</Link> | 
-            <Link to="/terms" className="hover:text-white ml-1">Terms of Service</Link>
+        <div className="border-t border-white/20 mt-8 pt-8 text-center">
+          <p className="text-white/80">
+            © 2024 Axaphonics. All rights reserved. | Privacy Policy | Terms of Service
           </p>
         </div>
       </div>

@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,11 +18,6 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				'calibri': ['Calibri', 'sans-serif'],
-				'century-gothic': ['Century Gothic', 'sans-serif'],
-				'arcon': ['Arcon', 'serif'],
-			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
