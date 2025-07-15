@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details - DevAccess AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans', sans-serif;
+            background-color: #111b22;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #1a2730;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        .logo-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .brand-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .nav-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: #93b3c8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: white;
+        }
+
+        .profile-picture {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            ring: 2px solid #374151;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .main-content {
+                padding: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .main-content {
+                padding: 4rem;
+            }
+        }
+
+        .content-wrapper {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Account Details Group */
+        .account-details-group {
+            background-color: #1a2b37;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #2d3748;
+        }
+
+        .section-header {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-divider {
+            border: none;
+            height: 1px;
+            background-color: #2d3748;
+            margin: 2rem 0;
+        }
+
+        /* Free Tier Usage Overview */
+        .usage-metric {
+            margin-bottom: 2rem;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .progress-container {
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background-color: #374151;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+
+        .progress-normal {
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+        }
+
+        .progress-warning {
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+        }
+
+        .progress-danger {
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+        }
+
+        .usage-numbers {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.25rem;
+        }
+
+        .usage-current {
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .usage-limit {
+            color: #93b3c8;
+            font-size: 0.9rem;
+        }
+
+        .usage-reset {
+            color: #6b7280;
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+
+        .warning-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: #f59e0b;
+            font-size: 0.9rem;
+            cursor: help;
+        }
+
+        .danger-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: #ef4444;
+            font-size: 0.9rem;
+            cursor: help;
+        }
+
+        .data-freshness {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #2d3748;
+        }
+
+        .last-updated {
+            color: #6b7280;
+            font-size: 0.8rem;
+        }
+
+        .refresh-button {
+            background-color: #374151;
+            color: white;
+            border: none;
+            padding: 0.375rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .refresh-button:hover {
+            background-color: #4b5563;
+        }
+
+        .software-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .software-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: #93b3c8;
+            min-width: 120px;
+        }
+
+        .detail-value {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .detail-text {
+            color: white;
+            font-weight: 500;
+        }
+
+        .detail-placeholder {
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-secondary {
+            background-color: #374151;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #4b5563;
+        }
+
+        .btn-link {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .btn-link:hover {
+            background-color: #2563eb;
+        }
+
+        /* Status Indicator */
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-circle {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #10b981;
+        }
+
+        .status-text {
+            color: #10b981;
+            font-weight: 500;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .action-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .btn-primary {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background-color: #2563eb;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #93b3c8;
+            border: 1px solid #374151;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .btn-outline:hover {
+            background-color: #374151;
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: transparent;
+            color: #ef4444;
+            border: 1px solid #ef4444;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .btn-danger:hover {
+            background-color: #ef4444;
+            color: white;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1f2937;
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+            z-index: 1000;
+        }
+
+        .tooltip:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .account-details-group {
+                padding: 1.5rem;
+            }
+
+            .detail-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .detail-value {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-brand">
+                <div class="logo">DA</div>
+                <div class="brand-name">DevAccess AI</div>
+            </div>
+            <nav class="nav-section">
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Dashboard</a>
+                    <a href="#" class="nav-link">Docs</a>
+                    <a href="#" class="nav-link">Support</a>
+                </div>
+                <div class="profile-picture">JD</div>
+            </nav>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Section Title -->
+                <h1 class="section-title">Account Details</h1>
+
+                <!-- Account Details Group -->
+                <div class="account-details-group">
+                    <!-- Account Credentials Section -->
+                    <div class="section-header">
+                        📊 Account Credentials
+                    </div>
+
+                    <!-- Software Name & Profile -->
+                    <div class="detail-row">
+                        <div class="detail-label">Software Name & Profile:</div>
+                        <div class="detail-value">
+                            <div class="software-profile">
+                                <div class="software-logo">VS</div>
+                                <span class="detail-text">Cursor IDE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generated Email -->
+                    <div class="detail-row">
+                        <div class="detail-label">Generated Email:
+                            <br><small style="color: #6b7280;">Click to copy</small>
+                        </div>
+                        <div class="detail-value">
+                            <span class="detail-text">dev.user.2025@tempmail.cursor.com</span>
+                            <button class="btn btn-secondary" onclick="copyEmail()">Copy</button>
+                        </div>
+                    </div>
+
+                    <!-- Generated Password -->
+                    <div class="detail-row">
+                        <div class="detail-label">Generated Password:
+                            <br><small style="color: #6b7280;">Click to show/hide</small>
+                        </div>
+                        <div class="detail-value">
+                            <span class="detail-text" id="password-field">••••••••••••••••</span>
+                            <button class="btn btn-secondary" id="show-password-btn" onclick="togglePassword()">Show</button>
+                        </div>
+                    </div>
+
+                    <!-- Login URL -->
+                    <div class="detail-row">
+                        <div class="detail-label">Login URL:
+                            <br><small style="color: #6b7280;">Go to URL</small>
+                        </div>
+                        <div class="detail-value">
+                            <a href="https://cursor.sh/login" class="btn btn-link" target="_blank">Go</a>
+                        </div>
+                    </div>
+
+                    <!-- Status -->
+                    <div class="detail-row">
+                        <div class="detail-label">Status:</div>
+                        <div class="detail-value">
+                            <div class="status-indicator">
+                                <div class="status-circle"></div>
+                                <span class="status-text">Active</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Usage Context -->
+                    <div class="detail-row">
+                        <div class="detail-label">Usage Context:</div>
+                        <div class="detail-value">
+                            <span class="detail-text">Web Application Development</span>
+                        </div>
+                    </div>
+
+                    <!-- Section Divider -->
+                    <hr class="section-divider">
+
+                    <!-- Free Tier Usage Overview Section -->
+                    <div class="section-header">
+                        📊 Free Tier Usage Overview
+                    </div>
+
+                    <!-- API Calls Usage -->
+                    <div class="usage-metric">
+                        <div class="metric-label">API Calls</div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill progress-normal" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="usage-numbers">
+                            <span class="usage-current">3,750 of 5,000 calls</span>
+                            <span class="usage-limit"></span>
+                        </div>
+                        <div class="usage-reset">(Resets on Feb 1st)</div>
+                    </div>
+
+                    <!-- Storage Usage -->
+                    <div class="usage-metric">
+                        <div class="metric-label">Storage Used</div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill progress-warning" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="usage-numbers">
+                            <span class="usage-current">850 MB of 1 GB</span>
+                            <span class="warning-icon tooltip" data-tooltip="Approaching limit – consider upgrading or reducing usage">⚠️</span>
+                        </div>
+                        <div class="usage-reset">(Monthly limit)</div>
+                    </div>
+
+                    <!-- Build Minutes Usage -->
+                    <div class="usage-metric">
+                        <div class="metric-label">Build Minutes</div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill progress-danger" style="width: 105%;"></div>
+                            </div>
+                        </div>
+                        <div class="usage-numbers">
+                            <span class="usage-current">525 of 500 minutes</span>
+                            <span class="danger-icon tooltip" data-tooltip="🛑 Limit Exceeded! Overage charges may apply">🛑</span>
+                        </div>
+                        <div class="usage-reset">(Resets on Feb 1st)</div>
+                    </div>
+
+                    <!-- Collaborators Usage -->
+                    <div class="usage-metric">
+                        <div class="metric-label">Team Collaborators</div>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill progress-normal" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                        <div class="usage-numbers">
+                            <span class="usage-current">2 of 5 members</span>
+                            <span class="usage-limit"></span>
+                        </div>
+                        <div class="usage-reset">(No reset - permanent allocation)</div>
+                    </div>
+
+                    <!-- Data Freshness -->
+                    <div class="data-freshness">
+                        <span class="last-updated">Data last updated: 5 minutes ago</span>
+                        <button class="refresh-button" onclick="refreshUsageData()">Refresh Usage</button>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn-primary">Go to Tool</button>
+                    <button class="btn btn-outline">Reset Password</button>
+                    <button class="btn btn-danger">Delete Account</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Copy email functionality
+        function copyEmail() {
+            const email = 'dev.user.2025@tempmail.cursor.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            });
+        }
+
+        // Toggle password visibility
+        function togglePassword() {
+            const passwordField = document.getElementById('password-field');
+            const showButton = document.getElementById('show-password-btn');
+            
+            if (passwordField.textContent === '••••••••••••••••') {
+                passwordField.textContent = 'Kx9#mP2$wQ8@vN5!';
+                showButton.textContent = 'Hide';
+            } else {
+                passwordField.textContent = '••••••••••••••••';
+                showButton.textContent = 'Show';
+            }
+        }
+
+        // Refresh usage data functionality
+        async function refreshUsageData() {
+            const refreshButton = document.querySelector('.refresh-button');
+            const lastUpdatedSpan = document.querySelector('.last-updated');
+            
+            // Disable button and show loading state
+            refreshButton.textContent = 'Refreshing...';
+            refreshButton.disabled = true;
+            
+            try {
+                // Call backend API
+                const response = await fetch('/api/frontend/refresh-usage', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Update last updated time
+                    lastUpdatedSpan.textContent = `Data last updated: ${data.last_updated}`;
+                    
+                    // Update usage data with real data from backend
+                    updateUsageDataFromAPI(data.metrics);
+                    
+                    // Show success message
+                    showNotification('Usage data refreshed successfully!', 'success');
+                } else {
+                    throw new Error('Failed to refresh data');
+                }
+            } catch (error) {
+                console.error('Error refreshing usage data:', error);
+                showNotification('Failed to refresh usage data. Please try again.', 'error');
+            } finally {
+                // Re-enable button
+                refreshButton.textContent = 'Refresh Usage';
+                refreshButton.disabled = false;
+            }
+        }
+
+        // Simulate usage data updates
+        function updateUsageData() {
+            // API calls - slight increase
+            const apiBar = document.querySelector('.usage-metric:nth-of-type(1) .progress-fill');
+            const apiText = document.querySelector('.usage-metric:nth-of-type(1) .usage-current');
+            apiBar.style.width = '76%';
+            apiText.textContent = '3,780 of 5,000 calls';
+            
+            // Storage - slight increase, approaching warning
+            const storageBar = document.querySelector('.usage-metric:nth-of-type(2) .progress-fill');
+            const storageText = document.querySelector('.usage-metric:nth-of-type(2) .usage-current');
+            storageBar.style.width = '87%';
+            storageText.textContent = '870 MB of 1 GB';
+        }
+
+        // Update usage data from API response
+        function updateUsageDataFromAPI(metrics) {
+            const usageMetrics = document.querySelectorAll('.usage-metric');
+            
+            metrics.forEach((metric, index) => {
+                if (index < usageMetrics.length) {
+                    const metricElement = usageMetrics[index];
+                    const progressBar = metricElement.querySelector('.progress-fill');
+                    const usageText = metricElement.querySelector('.usage-current');
+                    
+                    // Calculate percentage
+                    const percentage = (metric.current / metric.limit) * 100;
+                    
+                    // Update progress bar width
+                    progressBar.style.width = `${Math.min(percentage, 100)}%`;
+                    
+                    // Update progress bar color based on status
+                    progressBar.className = 'progress-fill';
+                    if (metric.status === 'warning') {
+                        progressBar.classList.add('progress-warning');
+                    } else if (metric.status === 'exceeded') {
+                        progressBar.classList.add('progress-danger');
+                    } else {
+                        progressBar.classList.add('progress-normal');
+                    }
+                    
+                    // Update usage text
+                    usageText.textContent = `${metric.current} of ${metric.limit} ${metric.unit}`;
+                }
+            });
+        }
+        
+        // Show notification system
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.textContent = message;
+            
+            // Add styles
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                color: white;
+                font-weight: 500;
+                z-index: 1000;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+                word-wrap: break-word;
+            `;
+            
+            // Set background color based on type
+            switch (type) {
+                case 'success':
+                    notification.style.backgroundColor = '#10b981';
+                    break;
+                case 'error':
+                    notification.style.backgroundColor = '#ef4444';
+                    break;
+                case 'warning':
+                    notification.style.backgroundColor = '#f59e0b';
+                    break;
+                default:
+                    notification.style.backgroundColor = '#3b82f6';
+            }
+            
+            // Add to page
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Load account data from API on page load
+        async function loadAccountData() {
+            try {
+                const response = await fetch('/api/frontend/account-data');
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Update UI with real data
+                    updateUIWithAccountData(data);
+                } else {
+                    console.warn('Failed to load account data, using defaults');
+                }
+            } catch (error) {
+                console.error('Error loading account data:', error);
+            }
+        }
+        
+        // Update UI with account data
+        function updateUIWithAccountData(data) {
+            // Update software info
+            if (data.software_info) {
+                const softwareName = document.querySelector('.software-profile .detail-text');
+                if (softwareName) softwareName.textContent = data.software_info.name;
+                
+                const softwareLogo = document.querySelector('.software-logo');
+                if (softwareLogo) softwareLogo.textContent = data.software_info.logo;
+            }
+            
+            // Update credentials
+            if (data.credentials) {
+                const emailSpan = document.querySelector('.detail-value .detail-text');
+                if (emailSpan) emailSpan.textContent = data.credentials.email;
+                
+                const loginLink = document.querySelector('.btn-link');
+                if (loginLink) loginLink.href = data.credentials.login_url;
+            }
+            
+            // Update usage context
+            if (data.status) {
+                const usageContext = document.querySelector('.detail-row:last-child .detail-text');
+                if (usageContext) usageContext.textContent = data.status.usage_context;
+            }
+            
+            // Update usage metrics
+            if (data.usage_metrics) {
+                updateUsageDataFromAPI(data.usage_metrics);
+            }
+            
+            // Update last updated time
+            if (data.last_updated) {
+                const lastUpdated = document.querySelector('.last-updated');
+                if (lastUpdated) lastUpdated.textContent = `Data last updated: ${data.last_updated}`;
+            }
+        }
+
+        // Initialize tooltips and hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load account data
+            loadAccountData();
+            
+            // Add animation to progress bars on load
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

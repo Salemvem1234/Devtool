@@ -1,0 +1,29 @@
+# DevAccess AI CLI Requirements
+
+# Core CLI framework
+click>=8.0.0
+rich>=13.0.0
+prompt-toolkit>=3.0.0
+
+# HTTP client
+aiohttp>=3.8.0
+
+# Data processing
+pyyaml>=6.0
+pandas>=1.5.0
+
+# Configuration
+configparser>=5.0.0
+
+# Async utilities
+asyncio-throttle>=1.0.0
+
+# Development tools
+black>=22.0.0
+flake8>=4.0.0
+mypy>=0.910
+
+# Optional dependencies for extended functionality
+cryptography>=3.4.0
+keyring>=23.0.0
+python-dateutil>=2.8.0

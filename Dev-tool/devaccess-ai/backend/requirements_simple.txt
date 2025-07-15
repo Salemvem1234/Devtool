@@ -1,0 +1,22 @@
+# Ultra-minimal requirements to get FastAPI running
+# Core FastAPI
+fastapi==0.95.0
+uvicorn==0.21.0
+
+# Database (using modern psycopg with binary)
+psycopg[binary]==3.1.18
+sqlalchemy==2.0.23
+alembic==1.12.1
+
+# Basic validation
+pydantic==1.10.15
+pydantic-settings==2.0.3
+
+# Environment
+python-dotenv==1.0.0
+
+# Basic HTTP client
+httpx==0.24.0
+
+# Simple logging
+loguru==0.7.0

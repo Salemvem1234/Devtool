@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevAccess AI - Unleash Your Dev Superpowers with AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans', sans-serif;
+            background-color: #111b22;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #1a2730;
+            border-bottom: 1px solid #2d3748;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .brand-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .nav-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #3b82f6;
+        }
+
+        .profile-picture {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            border: 2px solid #3b82f6;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #111b22 0%, #1a2730 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-headline {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #93b3c8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: #93b3c8;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: #374151;
+            color: white;
+            border: 1px solid #4b5563;
+        }
+
+        .btn-secondary:hover {
+            background-color: #4b5563;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+            background-color: #0f1419;
+        }
+
+        .features-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: #1a2730;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #2d3748;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background-color: #1f2937;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 24px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .feature-description {
+            color: #93b3c8;
+            line-height: 1.6;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 4rem 2rem;
+            background-color: #111b22;
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-text {
+            font-size: 1.25rem;
+            color: #93b3c8;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1a2730 0%, #2d3748 100%);
+            text-align: center;
+        }
+
+        .final-cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-headline {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-subheadline {
+            font-size: 1.25rem;
+            color: #93b3c8;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0f1419;
+            padding: 2rem;
+            border-top: 1px solid #2d3748;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #93b3c8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #3b82f6;
+        }
+
+        .footer-copyright {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-headline {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1.125rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-headline {
+                font-size: 2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content > * {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-description {
+            animation-delay: 0.2s;
+        }
+
+        .hero-buttons {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-brand">
+                <div class="logo">⚡</div>
+                <div class="brand-name">DevAccess AI</div>
+            </div>
+            <nav class="nav-section">
+                <div class="nav-links">
+                    <a href="account-details.html" class="nav-link">Dashboard</a>
+                    <a href="#" class="nav-link">Docs</a>
+                    <a href="#" class="nav-link">Support</a>
+                </div>
+                <div class="profile-picture">JD</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-headline">Unleash Your Dev Superpowers with AI</h1>
+            <p class="hero-description">
+                DevAccess AI provides intelligent assistance and automated tools to streamline your development workflow, 
+                from code generation to deployment. Focus on innovation, we'll handle the rest.
+            </p>
+            <div class="hero-buttons">
+                <a href="create-account.html" class="btn btn-primary">Get Started Free</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="features-content">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Smart Code Generation</h3>
+                    <p class="feature-description">
+                        Generate boilerplate code, complex functions, and entire components with AI-driven precision. 
+                        Save hours of development time with intelligent code suggestions.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Intelligent Debugging</h3>
+                    <p class="feature-description">
+                        Automatically identify and fix bugs with advanced AI analysis. Get detailed explanations 
+                        and solutions for common and complex coding issues.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3 class="feature-title">Security Analysis</h3>
+                    <p class="feature-description">
+                        Scan your code for vulnerabilities and security issues in real-time. Implement best 
+                        practices and maintain secure coding standards automatically.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Performance Optimization</h3>
+                    <p class="feature-description">
+                        Analyze and optimize your code performance with AI-powered insights. Identify bottlenecks 
+                        and receive actionable recommendations for improvement.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">API Integration</h3>
+                    <p class="feature-description">
+                        Seamlessly integrate with popular APIs and services. Generate integration code and 
+                        documentation automatically with intelligent API mapping.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Deployment Automation</h3>
+                    <p class="feature-description">
+                        Automate your deployment pipeline with AI-guided configuration. From staging to production, 
+                        ensure smooth and reliable deployments every time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="mission-content">
+            <h2 class="section-title">Our Mission</h2>
+            <p class="mission-text">
+                At DevAccess AI, we believe in empowering developers. Our mission is to simplify complex development 
+                tasks through cutting-edge artificial intelligence, allowing you to focus on creativity and innovation. 
+                We're building the future of coding, making it more efficient, secure, and accessible for everyone.
+            </p>
+        </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="final-cta">
+        <div class="final-cta-content">
+            <h2 class="cta-headline">Ready to Elevate Your Development?</h2>
+            <p class="cta-subheadline">
+                Join thousands of developers who are building faster, smarter, and more securely with DevAccess AI.
+            </p>
+            <a href="create-account.html" class="btn btn-primary">Start Building Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link">Contact Us</a>
+            </div>
+            <p class="footer-copyright">© 2025 DevAccess AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(26, 39, 48, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = '#1a2730';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards and other elements
+        document.querySelectorAll('.feature-card, .mission-content, .final-cta-content').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

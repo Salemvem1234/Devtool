@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+pydantic
+sqlalchemy[asyncio]
+aiosqlite
+structlog
+jinja2
+python-multipart

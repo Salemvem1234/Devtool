@@ -1,0 +1,43 @@
+# Core FastAPI dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Database
+sqlalchemy==2.0.23
+alembic==1.13.1
+psycopg[binary]==3.1.18
+asyncpg==0.29.0
+
+# Redis and Celery
+redis==5.0.1
+celery==5.3.4
+
+# Web scraping (lightweight)
+requests==2.31.0
+beautifulsoup4==4.12.2
+
+# NLP alternative (lightweight)
+textblob==0.17.1
+nltk==3.8.1
+
+# Security and Auth
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+
+# HTTP client
+httpx==0.25.2
+
+# Environment
+python-dotenv==1.0.0
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2
+
+# Development
+black==23.11.0
+flake8==6.1.0

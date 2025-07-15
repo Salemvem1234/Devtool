@@ -1,0 +1,24 @@
+# Core FastAPI and server
+fastapi==0.95.0
+uvicorn==0.21.0
+
+# Database with binary wheels (PostgreSQL)
+psycopg[binary]==3.1.18
+sqlalchemy==2.0.23
+alembic==1.12.1
+
+# Data validation - compatible versions
+pydantic==1.10.15
+pydantic-settings==0.2.5
+
+# Environment and configuration
+python-dotenv==1.0.0
+
+# HTTP client
+httpx==0.24.0
+
+# Logging
+loguru==0.7.0
+
+# Additional FastAPI dependencies
+python-multipart==0.0.6
